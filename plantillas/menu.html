@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Menú Principal</h2>
+        <ul>
+            <li><a href="/products">Mantenimiento CRUD de productos</a></li>
+            <li><a href="/products/view">Ver productos</a></li>
+            <li><a href="/logout">Salir</a></li>
+        </ul>
+    </div>
+</body>
+</html>

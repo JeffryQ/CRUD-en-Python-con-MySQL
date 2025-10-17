@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>CRUD de Productos</h2>
+        <a href="/menu" class="back-link">← Volver al menú</a>
+
+        <h3>{% if product %}Editar{% else %}Crear{% endif %} Producto</h3>
+        <form method="POST" action="/products/save">
+            {% if product %}
+                <input type="hidden" name="id" value="{{ product.id }}">
+            {% endif %}
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Nombre" value="{{ product.name if product else '' }}" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="description" placeholder="Descripción" value="{{ product.description if product else '' }}">
+            </div>
+            <div class="form-group">
+                <input type="number" step="0.01" name="price" placeholder="Precio" value="{{ product.price if product else '' }}" required>
+            </div>
+            <button type="submit">{% if product %}Actualizar{% else %}Crear{% endif %}</button>
+        </form>
+
+        <h3>Lista de Productos</h3>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+            </tr>
+            {% for p in products %}
+            <tr>
+                <td>{{ p[0] }}</td>
+                <td>{{ p[1] }}</td>
+                <td>{{ p[2] }}</td>
+                <td>${{ "%.2f"|format(p[3]) }}</td>
+                <td>
+                    <a href="/products/edit/{{ p[0] }}">Editar</a> |
+                    <a href="/products/delete/{{ p[0] }}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
