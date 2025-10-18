@@ -6,8 +6,8 @@ def get_connection():
         connection = mysql.connector.connect(
             host='localhost',
             database='proyecto_crud',
-            user='root',        # Cambia si tu usuario es otro
-            password='102003'   # Cambia tu contraseña
+            user='TU USUARIO',        # Cambia si tu usuario es otro
+            password='TU CONTRASEÑA'   # Cambia tu contraseña
         )
         return connection
     except Error as e:

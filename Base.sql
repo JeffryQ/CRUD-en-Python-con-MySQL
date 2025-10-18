@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS products (
 );
 
 -- Insertamos un usuario de prueba
-INSERT INTO users (username, password) VALUES ('admin', '1234');
+INSERT INTO users (username, password) VALUES ('admin', '1234'); /*puedes cambiar el usuario y contraseña o añadir uno nuevo*/
 
 -- Insertamos productos de prueba (opcional)
 INSERT INTO products (name, description, price) VALUES
